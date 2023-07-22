@@ -1,7 +1,8 @@
 const { Router } = require("express");
 const crosswordsRouter = require('./CrosswordsRouter')
 const wordsRouter = require('./WordsRouter')
-const lettersRouter = require('./LettersRouter')
+const lettersRouter = require('./LettersRouter');
+const ApiError = require("../middleware/errors/ApiError");
 const router = Router()
 
 router.get('', (req, res) => {
@@ -10,5 +11,9 @@ router.get('', (req, res) => {
 router.use('/crosswords', crosswordsRouter)
 router.use('/words', wordsRouter)
 router.use('/letters', lettersRouter)
+
+router.get('*', (req, res, next) => {
+    return next(ApiError.BadRequest("Unknown route!"))
+})
 
 module.exports = router

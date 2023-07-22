@@ -11,5 +11,6 @@ const Letter = sequelize.define('Letter', {
 })
 
 Word.hasMany(Letter)
+Letter.hasOne(Word)
 
 module.exports = Letter
