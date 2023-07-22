@@ -1,15 +1,37 @@
+const ApiError = require("../middleware/errors/ApiError");
 const Word = require("../models/Word");
 
 class WordsController {
-    async getAll(req, res) {
-        const words = await Word.findAll()
-        return res.json(words)
+    async getAll(req, res, next) {
+        try {
+            const words = await Word.findAll()
+            return res.json(words)
+        } catch (e) {
+            return next(ApiError.Internal(e.message))
+        }
     }
 
-    async add(req, res) {
-        const { CrosswordId, Content, Direction, Description } = req.body
-        const word = await Word.create({ CrosswordId, Content, Direction, Description })
-        return res.json(word)
+    async add(req, res, next) {
+        try {
+            const { CrosswordId, Content, Direction, Description } = req.body
+            const word = await Word.create({ CrosswordId, Content, Direction, Description })
+            return res.json(word)
+        } catch (e) {
+            return next(ApiError.Internal(e.message))
+        }
+    }
+
+    async remove(req, res, next) {
+        try {
+            const { Id } = req.body
+            const linesDeleted = await Word.destroy({ where: { Id } })
+            if (linesDeleted == 1) {
+                return res.json({ message: "Word removed" })
+            }
+            return next(ApiError.Internal("Something went wrong"))
+        } catch (e) {
+            return next(ApiError.Internal(e.message))
+        }
     }
 }
 

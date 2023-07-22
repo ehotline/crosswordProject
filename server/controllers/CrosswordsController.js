@@ -3,21 +3,35 @@ const Crossword = require("../models/Crossword");
 
 class CrosswordsController {
     async getAll(req, res, next) {
-        const crosswords = await Crossword.findAll()
-        return res.json(crosswords)
+        try {
+            const crosswords = await Crossword.findAll()
+            return res.json(crosswords)
+        } catch (e) {
+            return next(ApiError.Internal(e.message))
+        }
     }
 
-    async add(req, res) {
-        const { Title, Description } = req.body
-        const crossword = await Crossword.create({ Title, Description })
-        return res.json(crossword)
+    async add(req, res, next) {
+        try {
+            const { Title, Description } = req.body
+            const crossword = await Crossword.create({ Title, Description })
+            return res.json(crossword)
+        } catch (e) {
+            return next(ApiError.Internal(e.message))
+        }
     }
 
-    async remove(req, res) {
-        const { Id } = req.body
-        const linesDeleted = await Crossword.destroy({ where: { Id } })
-        const result = linesDeleted == 1 ? "Crossword removed" : "Error"
-        return res.json(result)
+    async remove(req, res, next) {
+        try {
+            const { Id } = req.body
+            const linesDeleted = await Crossword.destroy({ where: { Id } })
+            if (linesDeleted == 1) {
+                return res.json({ message: "Crossword removed" })
+            }
+            return next(ApiError.Internal("Something went wrong"))
+        } catch (e) {
+            return next(ApiError.Internal(e.message))
+        }
     }
 }
 
