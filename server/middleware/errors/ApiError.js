@@ -5,6 +5,10 @@ class ApiError extends Error {
         this.message = message
     }
 
+    static BadRequest(message) {
+        return new ApiError(400, message)
+    }
+
     static Unauthorized(message) {
         return new ApiError(401, message)
     }
@@ -13,7 +17,7 @@ class ApiError extends Error {
         return new ApiError(403, message)
     }
 
-    static BadRequest(message) {
+    static NotFound(message) {
         return new ApiError(404, message)
     }
 

@@ -13,7 +13,7 @@ router.use('/words', wordsRouter)
 router.use('/letters', lettersRouter)
 
 router.get('*', (req, res, next) => {
-    return next(ApiError.BadRequest("Unknown route!"))
+    return next(ApiError.NotFound("Unknown route!"))
 })
 
 module.exports = router
