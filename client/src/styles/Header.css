@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100vw;
+    padding: 20px 20%;
+    background: #252A34;
+}
+
+a, button, .logo {
+    font-weight: 500;
+    font-size: 18px;
+    text-decoration: none;
+    color: #EAEAEA;
+}
+
+a {
+    margin: 0 15px;
+    transition: all 0.3s ease 0s;
+}
+
+a:hover {
+    color: #08D9D6;
+}
+
+button {
+    padding: 7px 25px;
+    background-color: #048684;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    margin-left: 50px;
+}
+
+button:hover {
+    background-color: #048684AA;
+}
+
+.logo {
+    font-weight: 900;
+    font-size: 22px;
+    cursor: pointer;
+}
