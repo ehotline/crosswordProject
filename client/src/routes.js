@@ -1,4 +1,4 @@
-import Crosswords from "./pages/Crosswords"
+import Crosswords from "./pages/Crosswords/Crosswords"
 import Info from "./pages/Info"
 
 export const privateRoutes = [

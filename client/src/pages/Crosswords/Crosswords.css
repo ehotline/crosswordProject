@@ -1,0 +1,23 @@
+.crosswordsList {
+    width: 80vw;
+    height: 100vh;
+    display: inline;
+    align-content: space-between;
+    direction: row;
+    background-color: #252A3433;
+}
+
+.crosswordItem {
+    box-sizing: border-box;
+    border: 5px solid transparent;
+    padding: 15px;
+    margin: 15px;
+    background: #252A34;
+    border-radius: 25px;
+    color: #EAEAEA;
+    transition: .3s ease ;
+}
+
+.crosswordItem:hover {
+    border-color: #048684;
+}

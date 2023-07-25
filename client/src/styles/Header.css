@@ -1,9 +1,9 @@
 .header {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100vw;
-    padding: 20px 20%;
+    padding: 20px 15%;
     background: #252A34;
 }
 
@@ -20,7 +20,7 @@ a {
 }
 
 a:hover {
-    color: #08D9D6;
+    color: #048684;
 }
 
 button {
