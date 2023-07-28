@@ -2,9 +2,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100vw;
-    padding: 20px 15%;
+    width: 90vw;
+    min-width: 700px;
+    padding: 1vw 10%;
     background: #252A34;
+    border-radius: 1.5vw;
+    margin-top: -10px;
 }
 
 a, button, .logo {
@@ -27,10 +30,10 @@ button {
     padding: 7px 25px;
     background-color: #048684;
     border: none;
-    border-radius: 50px;
+    border-radius: 1.5vw;
     transition: all 0.3s ease 0s;
     cursor: pointer;
-    margin-left: 50px;
+    margin-left: 2vw;
 }
 
 button:hover {

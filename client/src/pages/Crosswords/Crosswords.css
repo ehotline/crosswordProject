@@ -1,23 +1,39 @@
-.crosswordsList {
+.main {
     width: 80vw;
-    height: 100vh;
-    display: inline;
-    align-content: space-between;
-    direction: row;
+    display: flex;
+    align-items: flex-start;
+    color: #EAEAEA;
     background-color: #252A3433;
+    padding: 1vw;
+}
+.crosswordsList {
+    width: 100vw;
+    height: 100vh;
 }
 
 .crosswordItem {
-    box-sizing: border-box;
-    border: 5px solid transparent;
-    padding: 15px;
-    margin: 15px;
+    padding: 1.2vw;
+    margin: 1vw;
     background: #252A34;
-    border-radius: 25px;
-    color: #EAEAEA;
-    transition: .3s ease ;
+    border-radius: 1.5vw;
+    transition: .3s ease;
 }
 
 .crosswordItem:hover {
-    border-color: #048684;
+    background-color: #048684;
+}
+
+.crosswordItem .title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.crosswordInfo {
+    width: 50vw;
+    min-height: 100px;
+    overflow: hidden;
+    background-color: #252A34;
+    border-radius: 1.5vw;
+    margin: 1vw;
+    padding: 1.2vw;
 }
