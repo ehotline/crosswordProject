@@ -13,8 +13,7 @@ class WordsController {
 
     async add(req, res, next) {
         try {
-            const { CrosswordId, Content, Direction, Description } = req.body
-            const word = await Word.create({ CrosswordId, Content, Direction, Description })
+            const word = await Word.create(req.body)
             return res.json(word)
         } catch (e) {
             return next(ApiError.Internal(e.message))

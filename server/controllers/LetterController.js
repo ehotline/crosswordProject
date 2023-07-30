@@ -13,8 +13,7 @@ class LettersController {
 
     async add(req, res, next) {
         try {
-            const { WordId, Index, Row, Column } = req.body
-            const letter = await Letter.create({ WordId, Index, Row, Column })
+            const letter = await Letter.bulkCreate(req.body)
             return res.json(letter)
         } catch (e) {
             return next(ApiError.Internal(e.message))

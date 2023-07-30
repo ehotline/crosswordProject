@@ -13,8 +13,7 @@ class CrosswordsController {
 
     async add(req, res, next) {
         try {
-            const { Title, Description } = req.body
-            const crossword = await Crossword.create({ Title, Description })
+            const crossword = await Crossword.create(req.body)
             return res.json(crossword)
         } catch (e) {
             return next(ApiError.Internal(e.message))

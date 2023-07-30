@@ -12,6 +12,5 @@ const Word = sequelize.define('Word', {
 })
 
 Crossword.hasMany(Word)
-Word.hasOne(Crossword)
 
 module.exports = Word
