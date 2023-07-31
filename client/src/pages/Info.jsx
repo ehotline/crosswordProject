@@ -2,7 +2,7 @@ import React from 'react'
 
 const Info = () => {
     return (
-        <div>Info</div>
+        <div>{process.env.REACT_APP_SOME_STRING}</div>
     )
 }
 
