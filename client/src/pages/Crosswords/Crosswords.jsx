@@ -1,19 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import CrosswordItem from './CrosswordItem'
 import './Crosswords.css'
+import { useFetching } from '../../hooks/useFetching'
+import CrosswordService from '../../services/CrosswordService'
 
 const Crosswords = () => {
     const [crosswords, setCrosswords] = useState([])
+    const [selectedCrossword, setSelectedCrossword] = useState({})
+    const [fetchCrosswords, isLoadingCrosswords, error] = useFetching(async () => {
+        const response = await CrosswordService.getAll()
+        setCrosswords(response.data)
+        if(response.data[0]) {
+            setSelectedCrossword(response.data[0])
+        }
+    })
+
+    const crosswordItemClick = (c) => {
+        setSelectedCrossword(c)
+    }
+
     useEffect(() => {
-        setCrosswords([
-            { Id: 1, Title: 'Первый кроссворд', Description: 'Описание1' },
-            { Id: 2, Title: 'Второй кроссворд', Description: 'Описание2' },
-            { Id: 3, Title: 'Третий кроссворд', Description: 'Описание3' }
-        ])
+        fetchCrosswords()
     }, [])
-    if (!crosswords.length) {
+    if (isLoadingCrosswords) {
         return (
-            <div>Кроссвордов нет...</div>
+            <div>Загрузка кроссвордов...</div>
         )
     }
     return (
@@ -21,12 +32,12 @@ const Crosswords = () => {
             <div className='crosswordsList'>
                 {
                     crosswords.map(c =>
-                        <CrosswordItem key={c.Id} crossword={c} />
+                        <CrosswordItem key={c.Id} crossword={c} selectedCrossword={selectedCrossword} onClick={() => crosswordItemClick(c)} />
                     )
                 }
             </div>
             <div className='crosswordInfo'>
-                TEXT
+                <div>{selectedCrossword?.Description}</div>
             </div>
         </div>
     )

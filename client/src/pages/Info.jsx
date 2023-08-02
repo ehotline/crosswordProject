@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import CrosswordService from '../services/CrosswordService'
 
 const Info = () => {
     return (
-        <div>{process.env.REACT_APP_SOME_STRING}</div>
+        <div>
+            <div>INFO</div>
+        </div>
     )
 }
 

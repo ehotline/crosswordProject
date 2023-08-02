@@ -15,12 +15,19 @@
     padding: 1.2vw;
     margin: 1vw;
     background: #252A34;
+    border: solid #252A34 0.3vw;
     border-radius: 1.5vw;
     transition: .3s ease;
 }
 
+.selected {
+    box-sizing: border-box;
+    border-color: #048684;
+}
+
 .crosswordItem:hover {
     background-color: #048684;
+    border-color: #048684;
 }
 
 .crosswordItem .title {
@@ -33,6 +40,7 @@
     min-height: 100px;
     overflow: hidden;
     background-color: #252A34;
+    border: 0.3vw solid #048684;
     border-radius: 1.5vw;
     margin: 1vw;
     padding: 1.2vw;

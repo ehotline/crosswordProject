@@ -1,13 +1,10 @@
 import React from 'react'
 
-const CrosswordItem = ({ crossword }) => {
+const CrosswordItem = ({ crossword, selectedCrossword, ...props }) => {
     return (
-        <div className='crosswordItem'>
+        <div className={crossword.Id === selectedCrossword.Id ? "crosswordItem selected" : 'crosswordItem'} {...props}>
             <div className='title'>
-                {crossword.Id}. {crossword.Title}
-            </div>
-            <div className='description'>
-                {crossword.Description}
+                {crossword.Title}
             </div>
         </div>
     )
