@@ -1,9 +1,9 @@
 
-const { DataTypes } = require('sequelize')
-const sequelize = require('../db')
-const Role = require('./Role')
+const { DataTypes } = require("sequelize")
+const sequelize = require("../db")
+const Role = require("./Role")
 
-const User = sequelize.define('User', {
+const User = sequelize.define("User", {
     Id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     Name: { type: DataTypes.STRING },
     HashPassword: { type: DataTypes.STRING },

@@ -3,7 +3,7 @@ const sequelize = require("../db");
 const Crossword = require("./Crossword");
 
 
-const Word = sequelize.define('Word', {
+const Word = sequelize.define("Word", {
     Id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     CrosswordId: { type: DataTypes.INTEGER },
     Content: { type: DataTypes.STRING },

@@ -1,17 +1,17 @@
-require('dotenv').config()
-const express = require('express')
+require("dotenv").config()
+const express = require("express")
 const PORT = process.env.PORT
-const sequelize = require('./db')
-const models = require('./models/Models')
-const cors = require('cors')
-const router = require('./routing/MainRouter')
-const errorHandler = require('./middleware/errors/ErrorHandlingMiddlware')
+const sequelize = require("./db")
+const models = require("./models/Models")
+const cors = require("cors")
+const router = require("./routing/MainRouter")
+const errorHandler = require("./middleware/errors/ErrorHandlingMiddlware")
 
 const app = express()
 app.use(cors())
 app.use(express.json())
 
-app.use('/', router)
+app.use("/", router)
 app.use(errorHandler)
 
 const start = async () => {
