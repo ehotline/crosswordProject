@@ -7,7 +7,7 @@
     "dialect": "postgres"
   },
   "test": {
-    "username": "s",
+    "username": "postgres",
     "password": "12345678",
     "database": "crosswordProject",
     "host": "127.0.0.1",
