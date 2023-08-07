@@ -4,7 +4,7 @@ import { useFetching } from '../../hooks/useFetching'
 import CrosswordService from '../../services/CrosswordService'
 import CrosswordItem from './CrosswordItem'
 
-const CrosswordsList = ({selectedCrossword, setSelectedCrossword}) => {
+const CrosswordsList = ({selectedCrossword, setSelectedCrossword, isCrosswordsChanged}) => {
     const [crosswords, setCrosswords] = useState([])
     const [fetchCrosswords, isLoadingCrosswords, error] = useFetching(async () => {
         const response = await CrosswordService.getAll()
@@ -16,7 +16,8 @@ const CrosswordsList = ({selectedCrossword, setSelectedCrossword}) => {
 
     useEffect(() => {
         fetchCrosswords()
-    }, [])
+        console.log(123);
+    }, [isCrosswordsChanged])
 
     if (isLoadingCrosswords) {
         return (
