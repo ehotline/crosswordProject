@@ -18,7 +18,7 @@
 }
 
 *::-webkit-scrollbar-track {
-    background-color: transparent;
+    background-color: #EAEAEA;
 }
 
 #root {

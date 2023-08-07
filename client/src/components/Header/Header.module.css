@@ -4,31 +4,32 @@
     justify-content: space-between;
     width: 90vw;
     min-width: 700px;
-    padding: 1vw 8%;
+    padding: 1svw 8%;
     background: #252A34;
-    border-radius: 1.5vw;
-    margin-top: -10px;
+    border: 0.25svw solid #047684;
+    border-top: none;
+    border-radius: 0 0 5svw 5svw;
 }
 
-a, button, .logo {
+.link, .button, .logo {
     font-weight: 500;
     font-size: 18px;
     text-decoration: none;
     color: #EAEAEA;
 }
 
-a {
+.link {
     margin: 0 15px;
     transition: all 0.3s ease 0s;
 }
 
-a:hover {
-    color: #048684;
+.link:hover {
+    color: #047684;
 }
 
-button {
+.button {
     padding: 7px 25px;
-    background-color: #048684;
+    background-color: #047684;
     border: none;
     border-radius: 1.5vw;
     transition: all 0.3s ease 0s;
@@ -36,8 +37,8 @@ button {
     margin-left: 2vw;
 }
 
-button:hover {
-    background-color: #048684AA;
+.button:hover {
+    background-color: #047684AA;
 }
 
 .logo {

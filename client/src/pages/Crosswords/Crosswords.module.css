@@ -1,0 +1,100 @@
+.main {
+    width: 80vw;
+    display: flex;
+    align-items: flex-start;
+    background-color: #252A3433;
+    padding: 1svw;
+    height: 100svh;
+    color: #EAEAEA;
+}
+
+.container {
+    background-color: #252A34;
+    border: 0.25svw solid #047684;
+    border-radius: 1.5svw;
+    margin: 0.8svw;
+    padding: 1svw;
+}
+
+.crosswordsList {
+    width: 100vw;
+}
+
+.crosswordItem {
+    padding: 1.2svw;
+    margin: 1svw;
+    background: #252A34;
+    border: solid #252A34 0.25svw;
+    border-radius: 1.5svw;
+    transition: .3s ease;
+}
+
+.selected {
+    box-sizing: border-box;
+    border-color: #047684;
+}
+
+.crosswordItem:hover {
+    background-color: #047684;
+    border-color: #047684;
+}
+
+.crosswordItem .title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.sideBar {
+    width: 50svw;
+}
+
+.crosswordInfo {
+    min-height: 100px;
+    overflow: hidden;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    background-color: #047684;
+    color: #EAEAEA;
+    font-size: 18px;
+    padding: 7px 25px;
+    margin-right: 10px;
+    border-radius: 1.2svw;
+    border: 0px;
+    transition: all 0.3s ease 0s;
+}
+
+.button:hover {
+    background-color: #047684AA;
+}
+
+.button.create {
+    background-color: #077230;
+}
+
+.button.create:hover {
+    background-color: #077230BB;
+}
+
+.button.delete {
+    background-color: #770716;
+}
+
+.button.delete:hover {
+    background-color: #770716BB;
+}
+
+.line {
+    margin: 15px 0px;
+    border-bottom: 2px solid #047684;
+}
+
+.description {
+    margin: 15px 0px;
+}

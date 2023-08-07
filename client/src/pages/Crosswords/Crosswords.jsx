@@ -1,43 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import CrosswordItem from './CrosswordItem'
-import './Crosswords.css'
-import { useFetching } from '../../hooks/useFetching'
-import CrosswordService from '../../services/CrosswordService'
+import styles from './Crosswords.module.css'
+import CrosswordsList from './CrosswordsList'
 
 const Crosswords = () => {
-    const [crosswords, setCrosswords] = useState([])
     const [selectedCrossword, setSelectedCrossword] = useState({})
-    const [fetchCrosswords, isLoadingCrosswords, error] = useFetching(async () => {
-        const response = await CrosswordService.getAll()
-        setCrosswords(response.data)
-        if(response.data[0]) {
-            setSelectedCrossword(response.data[0])
-        }
-    })
 
-    const crosswordItemClick = (c) => {
-        setSelectedCrossword(c)
-    }
-
-    useEffect(() => {
-        fetchCrosswords()
-    }, [])
-    if (isLoadingCrosswords) {
-        return (
-            <div>Загрузка кроссвордов...</div>
-        )
-    }
     return (
-        <div className='main'>
-            <div className='crosswordsList'>
-                {
-                    crosswords.map(c =>
-                        <CrosswordItem key={c.Id} crossword={c} selectedCrossword={selectedCrossword} onClick={() => crosswordItemClick(c)} />
-                    )
-                }
-            </div>
-            <div className='crosswordInfo'>
-                <div>{selectedCrossword?.Description}</div>
+        <div className={styles.main}>
+            <CrosswordsList selectedCrossword={selectedCrossword} setSelectedCrossword={setSelectedCrossword}/>
+            <div className={styles.sideBar}>
+                <div className={`${styles.container} ${styles.crosswordInfo}`}>
+                    <button className={`${styles.button} ${styles.create}`}>Создать</button>
+                    <button className={`${styles.button} ${styles.delete}`}>Удалить</button>
+                    <div className={styles.line} />
+                    <div className={styles.description}>{selectedCrossword?.Description}</div>
+                </div>
             </div>
         </div>
     )
