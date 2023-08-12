@@ -1,30 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import styles from './Crosswords.module.css'
-import { useFetching } from '../../hooks/useFetching'
-import CrosswordService from '../../services/CrosswordService'
 import CrosswordItem from './CrosswordItem'
 
-const CrosswordsList = ({selectedCrossword, setSelectedCrossword, isCrosswordsChanged}) => {
-    const [crosswords, setCrosswords] = useState([])
-    const [fetchCrosswords, isLoadingCrosswords, error] = useFetching(async () => {
-        const response = await CrosswordService.getAll()
-        setCrosswords(response.data)
-        if (response.data[0]) {
-            setSelectedCrossword(response.data[0])
-        }
-    })
+const CrosswordsList = ({crosswords, isCrosswordsLoading, selectedCrossword, setSelectedCrossword, isCrosswordsChanged}) => {
 
-    useEffect(() => {
-        fetchCrosswords()
-        console.log(123);
-    }, [isCrosswordsChanged])
-
-    if (isLoadingCrosswords) {
+    if (isCrosswordsLoading) {
         return (
             <div>Загрузка кроссвордов...</div>
         )
     }
-    if (!crosswords.length && !isLoadingCrosswords) {
+    if (!crosswords.length && !isCrosswordsLoading) {
         return (
             <div>Нет кроссвордов</div>
         )

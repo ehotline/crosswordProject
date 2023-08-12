@@ -16,4 +16,13 @@ export default class CrosswordService {
         })
         return response
     }
+
+    static async remove(id) {
+        try {
+            const response = await axios.delete(process.env.REACT_APP_API_URL + "crosswords/" + id)
+            return response
+        } catch (e) {
+            console.log(e);
+        }
+    }
 }

@@ -2,10 +2,14 @@
     width: 80vw;
     display: flex;
     align-items: flex-start;
-    background-color: #252A3433;
     padding: 1svw;
-    height: 100%;
     color: #EAEAEA;
+}
+
+.absolute {
+    position: fixed;
+    height: 100svh;
+    background-color: #252A3433;
 }
 
 .container {

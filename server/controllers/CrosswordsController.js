@@ -22,10 +22,11 @@ class CrosswordsController {
 
     async remove(req, res, next) {
         try {
-            const { Id } = req.body
-            const linesDeleted = await Crossword.destroy({ where: { Id } })
+            const linesDeleted = await Crossword.destroy({ where: { Id: req.params.id } })
             if (linesDeleted == 1) {
                 return res.json({ message: "Crossword removed" })
+            } else if (linesDeleted == 0) {
+                return next(ApiError.NotFound("Crossword not found"))
             }
             return next(ApiError.Internal("Something went wrong"))
         } catch (e) {

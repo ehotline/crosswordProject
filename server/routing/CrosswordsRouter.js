@@ -4,6 +4,6 @@ const controller = require("../controllers/CrosswordsController")
 
 router.get("", controller.getAll)
 router.post("", controller.add)
-router.delete("", controller.remove)
+router.delete("/:id", controller.remove)
 
 module.exports = router

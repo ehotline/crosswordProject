@@ -13,7 +13,7 @@ class WordsController {
 
     async add(req, res, next) {
         try {
-            const word = await Word.create(req.body)
+            const word = await Word.bulkCreate(req.body)
             return res.json(word)
         } catch (e) {
             return next(ApiError.Internal(e.message))
