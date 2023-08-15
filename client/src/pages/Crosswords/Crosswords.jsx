@@ -5,7 +5,7 @@ import CrosswordsList from './CrosswordsList'
 import CrosswordService from '../../services/CrosswordService'
 
 const Crosswords = () => {
-    const [selectedCrossword, setSelectedCrossword] = useState({})
+    const [selectedCrossword, setSelectedCrossword] = useState(null)
     const [isCrosswordRemoved, setIsCrosswordRemoved] = useState([false, 0])
     const [crosswords, setCrosswords] = useState([])
     const [fetchCrosswords, isCrosswordsLoading, error] = useFetching(async () => {
@@ -29,6 +29,8 @@ const Crosswords = () => {
                 setSelectedCrossword(crosswords[removedIndex])
             } else if (crosswords.length > 0) {
                 setSelectedCrossword(crosswords[crosswords.length - 1])
+            } else {
+                setSelectedCrossword(null)
             }
             setIsCrosswordRemoved([false, 0])
         }
@@ -42,10 +44,15 @@ const Crosswords = () => {
             Rows: 6,
             Columns: 5
         })
-        setCrosswords([...crosswords, response.data])
+        if(!crosswords.length) {
+            fetchCrosswords()
+        } else {
+            setCrosswords([...crosswords, response.data])
+        }
     }
 
     const removeCrossword = () => {
+        if (!selectedCrossword) return
         const removedId = selectedCrossword.Id
         const removedIndex = crosswords.indexOf(selectedCrossword)
         CrosswordService.remove(removedId)
@@ -54,22 +61,19 @@ const Crosswords = () => {
     }
 
     return (
-        <div>
-            <div className={styles.absolute}></div>
-            <div className={styles.main}>
-                <CrosswordsList
-                    crosswords={crosswords}
-                    isCrosswordsLoading={isCrosswordsLoading}
-                    selectedCrossword={selectedCrossword}
-                    setSelectedCrossword={setSelectedCrossword}
-                />
-                <div className={styles.sideBar}>
-                    <div className={`${styles.container} ${styles.crosswordInfo}`}>
-                        <button className={`${styles.button} ${styles.create}`} onClick={createCrossword}>Создать</button>
-                        <button className={`${styles.button} ${styles.delete}`} onClick={removeCrossword}>Удалить</button>
-                        <div className={styles.line} />
-                        <div className={styles.description}>{selectedCrossword?.Description}</div>
-                    </div>
+        <div className={styles.main}>
+            <CrosswordsList
+                crosswords={crosswords}
+                isCrosswordsLoading={isCrosswordsLoading}
+                selectedCrossword={selectedCrossword}
+                setSelectedCrossword={setSelectedCrossword}
+            />
+            <div className={styles.sideBar}>
+                <div className={`${styles.container} ${styles.crosswordInfo}`}>
+                    <button className={`${styles.button} ${styles.create}`} onClick={createCrossword}>Создать</button>
+                    <button className={`${styles.button} ${styles.delete}`} onClick={removeCrossword}>Удалить</button>
+                    <div className={styles.line} />
+                    <div className={styles.description}>{selectedCrossword?.Description}</div>
                 </div>
             </div>
         </div>

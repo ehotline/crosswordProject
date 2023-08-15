@@ -1,15 +1,10 @@
 .main {
-    width: 80vw;
     display: flex;
-    align-items: flex-start;
+    justify-content: space-evenly;
     padding: 1svw;
     color: #EAEAEA;
-}
-
-.absolute {
-    position: fixed;
-    height: 100svh;
-    background-color: #252A3433;
+    border-radius: 0 0 2svw 2svw;
+    width: 100%;
 }
 
 .container {
@@ -21,7 +16,7 @@
 }
 
 .crosswordsList {
-    width: 100vw;
+    flex-grow: 3;
 }
 
 .crosswordItem {
@@ -49,7 +44,7 @@
 }
 
 .sideBar {
-    width: 50svw;
+    flex-grow: 1;
 }
 
 .crosswordInfo {
