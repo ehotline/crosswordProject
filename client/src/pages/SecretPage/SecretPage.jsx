@@ -19,7 +19,7 @@ const SecretPage = () => {
             <div className={styles.wrap}>
                 <CSSTransition
                     in={loaderVisible}
-                    timeout={2000}
+                    timeout={1000}
                     nodeRef={nodeRef}
                     classNames={{
                         ...styles

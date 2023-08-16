@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import CrosswordService from '../services/CrosswordService'
+import React from 'react'
+import GlobalWrapper from '../components/GlobalWrapper/GlobalWrapper'
 
 const Info = () => {
     return (
-        <div>
+        <GlobalWrapper>
             <div>INFO</div>
-        </div>
+        </GlobalWrapper>
     )
 }
 

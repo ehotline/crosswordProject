@@ -3,6 +3,7 @@ import styles from './Crosswords.module.css'
 import { useFetching } from '../../hooks/useFetching'
 import CrosswordsList from './CrosswordsList'
 import CrosswordService from '../../services/CrosswordService'
+import GlobalWrapper from '../../components/GlobalWrapper/GlobalWrapper'
 
 const Crosswords = () => {
     const [selectedCrossword, setSelectedCrossword] = useState(null)
@@ -44,7 +45,7 @@ const Crosswords = () => {
             Rows: 6,
             Columns: 5
         })
-        if(!crosswords.length) {
+        if (!crosswords.length) {
             fetchCrosswords()
         } else {
             setCrosswords([...crosswords, response.data])
@@ -61,22 +62,24 @@ const Crosswords = () => {
     }
 
     return (
-        <div className={styles.main}>
-            <CrosswordsList
-                crosswords={crosswords}
-                isCrosswordsLoading={isCrosswordsLoading}
-                selectedCrossword={selectedCrossword}
-                setSelectedCrossword={setSelectedCrossword}
-            />
-            <div className={styles.sideBar}>
-                <div className={`${styles.container} ${styles.crosswordInfo}`}>
-                    <button className={`${styles.button} ${styles.create}`} onClick={createCrossword}>Создать</button>
-                    <button className={`${styles.button} ${styles.delete}`} onClick={removeCrossword}>Удалить</button>
-                    <div className={styles.line} />
-                    <div className={styles.description}>{selectedCrossword?.Description}</div>
+        <GlobalWrapper>
+            <div className={styles.main}>
+                <CrosswordsList
+                    crosswords={crosswords}
+                    isCrosswordsLoading={isCrosswordsLoading}
+                    selectedCrossword={selectedCrossword}
+                    setSelectedCrossword={setSelectedCrossword}
+                />
+                <div className={styles.sideBar}>
+                    <div className={`${styles.container} ${styles.crosswordInfo}`}>
+                        <button className={`${styles.button} ${styles.create}`} onClick={createCrossword}>Создать</button>
+                        <button className={`${styles.button} ${styles.delete}`} onClick={removeCrossword}>Удалить</button>
+                        <div className={styles.line} />
+                        <div className={styles.description}>{selectedCrossword?.Description}</div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </GlobalWrapper>
     )
 }
 
