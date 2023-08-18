@@ -16,6 +16,8 @@ const ComponentWrapper = ({ children, ...props }) => {
             timeout={100}
             nodeRef={mainNode}
             classNames={styles}
+            unmountOnExit
+            mountOnEnter
         >
             <div ref={mainNode} className={styles.container} {...props}>{children}</div>
         </CSSTransition>

@@ -4,10 +4,12 @@ import styles from './Auth.module.css'
 import Button from '../../components/Button/Button'
 import { AuthContext } from '../../contexts/AuthContext'
 import ComponentWrapper from '../../components/ComponentWrapper/ComponentWrapper'
+import { CSSTransition } from 'react-transition-group'
 
 const Auth = () => {
     const { isAuth, setIsAuth } = useContext(AuthContext)
     const [isLogin, setIsLogin] = useState(true)
+    const nodeRef = useRef(null)
 
     return (
         <ComponentWrapper>
@@ -24,7 +26,7 @@ const Auth = () => {
                     </h1>
                     <TextInput placeholder="Логин" />
                     <TextInput placeholder="Пароль" type="password" />
-                    {!isLogin && <TextInput placeholder="Повторите пароль" type="password" />}
+                    <TextInput placeholder="Повторите пароль" type="password" state={!isLogin} />
                     <div className={styles.switchModes} onClick={() => setIsLogin(!isLogin)}>
                         {
                             isLogin
