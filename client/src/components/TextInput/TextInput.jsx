@@ -13,7 +13,7 @@ const TextInput = ({ state = null, ...props }) => {
     return (
         <CSSTransition
             in={state == null ? visible : state}
-            timeout={300}
+            timeout={100}
             nodeRef={nodeRef}
             classNames={styles}
             unmountOnExit
