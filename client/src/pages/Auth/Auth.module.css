@@ -37,19 +37,23 @@
     cursor: pointer;
 }
 
-.enter{
+.enter {
     opacity: 0;
- }
- .exit{
+}
+
+.exit {
     opacity: 1;
- }
- .enterActive{
+}
+
+.enterActive {
     opacity: 1;
- }
- .exitActive{
+}
+
+.exitActive {
     opacity: 0;
- }
- .enterActive,
- .exitActive{
+}
+
+.enterActive,
+.exitActive {
     transition: opacity 500ms;
- }
+}

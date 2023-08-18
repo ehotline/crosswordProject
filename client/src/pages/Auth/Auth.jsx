@@ -16,7 +16,7 @@ const Auth = () => {
                 <CSSTransition
                     key={isLogin}
                     classNames={styles}
-                    timeout={300}
+                    timeout={100}
                 >
                     <div className={styles.main}>
                         <form className={styles.form}>
