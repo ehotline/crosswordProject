@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import styles from './GlobalWrapper.module.css'
+import styles from './ComponentWrapper.module.css'
 import { CSSTransition } from 'react-transition-group'
 
-const GlobalWrapper = ({ children, ...props }) => {
+const ComponentWrapper = ({ children, ...props }) => {
     const [isPageLoading, setIsPageLoading] = useState(false)
     const mainNode = useRef(null)
 
@@ -22,4 +22,4 @@ const GlobalWrapper = ({ children, ...props }) => {
     )
 }
 
-export default GlobalWrapper
+export default ComponentWrapper

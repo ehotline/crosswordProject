@@ -1,11 +1,11 @@
 import React from 'react'
-import GlobalWrapper from '../components/GlobalWrapper/GlobalWrapper'
+import ComponentWrapper from '../components/ComponentWrapper/ComponentWrapper'
 
 const Info = () => {
     return (
-        <GlobalWrapper>
+        <ComponentWrapper>
             <div>INFO</div>
-        </GlobalWrapper>
+        </ComponentWrapper>
     )
 }
 

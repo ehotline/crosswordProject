@@ -3,14 +3,14 @@ import TextInput from '../../components/TextInput/TextInput'
 import styles from './Auth.module.css'
 import Button from '../../components/Button/Button'
 import { AuthContext } from '../../contexts/AuthContext'
-import GlobalWrapper from '../../components/GlobalWrapper/GlobalWrapper'
+import ComponentWrapper from '../../components/ComponentWrapper/ComponentWrapper'
 
 const Auth = () => {
     const { isAuth, setIsAuth } = useContext(AuthContext)
     const [isLogin, setIsLogin] = useState(true)
 
     return (
-        <GlobalWrapper>
+        <ComponentWrapper>
             <div className={styles.main}>
                 <form className={styles.form}>
                     <h1>
@@ -24,13 +24,7 @@ const Auth = () => {
                     </h1>
                     <TextInput placeholder="Логин" />
                     <TextInput placeholder="Пароль" type="password" />
-                    {
-                        !isLogin
-                            ?
-                            <TextInput placeholder="Повторите пароль" type="password" />
-                            :
-                            ""
-                    }
+                    {!isLogin && <TextInput placeholder="Повторите пароль" type="password" />}
                     <div className={styles.switchModes} onClick={() => setIsLogin(!isLogin)}>
                         {
                             isLogin
@@ -51,7 +45,7 @@ const Auth = () => {
                     </Button>
                 </form>
             </div>
-        </GlobalWrapper>
+        </ComponentWrapper>
     )
 }
 

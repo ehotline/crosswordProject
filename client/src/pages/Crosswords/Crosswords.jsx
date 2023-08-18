@@ -3,7 +3,7 @@ import styles from './Crosswords.module.css'
 import { useFetching } from '../../hooks/useFetching'
 import CrosswordsList from './CrosswordsList'
 import CrosswordService from '../../services/CrosswordService'
-import GlobalWrapper from '../../components/GlobalWrapper/GlobalWrapper'
+import ComponentWrapper from '../../components/ComponentWrapper/ComponentWrapper'
 
 const Crosswords = () => {
     const [selectedCrossword, setSelectedCrossword] = useState(null)
@@ -62,7 +62,7 @@ const Crosswords = () => {
     }
 
     return (
-        <GlobalWrapper>
+        <ComponentWrapper>
             <div className={styles.main}>
                 <CrosswordsList
                     crosswords={crosswords}
@@ -79,7 +79,7 @@ const Crosswords = () => {
                     </div>
                 </div>
             </div>
-        </GlobalWrapper>
+        </ComponentWrapper>
     )
 }
 
