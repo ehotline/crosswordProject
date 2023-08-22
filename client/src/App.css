@@ -9,12 +9,12 @@
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: #252A3433;
+    background-color: var(--color-background-light);
     border-radius: 5vh;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-    background-color: #252A3433;
+    background-color: var(--color-background-light);
 }
 
 #root {
@@ -26,5 +26,17 @@
 }
 
 body {
-    background: #252A3433;
+    background: var(--color-background-light);
+
+    --color-background: #252A34;
+    --color-background-light: #252A3433;
+    --color-text: #EAEAEA;
+    --color-border: #047684;
+
+    --color-button: #047684;
+    --color-button-hover: #047684AA;
+    --color-button-green: #077230;
+    --color-button-green-hover: #077230BB;
+    --color-button-red: #770716;;
+    --color-button-red-hover: #770716BB;
 }

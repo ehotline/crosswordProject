@@ -5,15 +5,15 @@
     width: 100%;
     min-width: 700px;
     padding: 1svw 8%;
-    background: #252A34;
-    border-bottom: 0.25svw solid #047684;
+    background: var(--color-background);
+    border-bottom: 0.25svw solid var(--color-border);
 }
 
 .link, .linkButton, .logo {
     font-weight: 500;
     font-size: 18px;
     text-decoration: none;
-    color: #EAEAEA;
+    color: var(--color-text);
 }
 
 .link {
@@ -22,12 +22,12 @@
 }
 
 .link:hover {
-    color: #047684;
+    color: var(--color-border);
 }
 
 .linkButton {
     padding: 7px 25px;
-    background-color: #047684;
+    background-color: var(--color-button);
     border: none;
     border-radius: 1.5vw;
     transition: all 0.3s ease 0s;
@@ -36,7 +36,7 @@
 }
 
 .linkButton:hover {
-    background-color: #047684AA;
+    background-color: var(--color-button-hover);
 }
 
 .logo {

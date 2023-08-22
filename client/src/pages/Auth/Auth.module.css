@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #EAEAEA;
+    color: var(--color-text);
     transition: all 0.5s ease;
 }
 
@@ -11,11 +11,11 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: #252A34;
+    background-color: var(--color-background);
     margin: 100px;
     padding: 25px;
     min-width: 550px;
-    border: solid #047684 0.25svw;
+    border: solid var(--color-border) 0.25svw;
     border-radius: 1.5svw;
 }
 

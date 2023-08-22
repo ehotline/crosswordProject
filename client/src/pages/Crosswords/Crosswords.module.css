@@ -2,14 +2,14 @@
     display: flex;
     justify-content: space-evenly;
     padding: 1svw;
-    color: #EAEAEA;
+    color: var(--color-text);
     border-radius: 0 0 2svw 2svw;
     width: 100%;
 }
 
 .container {
-    background-color: #252A34;
-    border: 0.25svw solid #047684;
+    background-color: var(--color-background);
+    border: 0.25svw solid var(--color-border);
     border-radius: 1.5svw;
     margin: 0.8svw;
     padding: 1svw;
@@ -22,7 +22,7 @@
 .crosswordItem {
     padding: 1.2svw;
     margin: 1svw;
-    background: #252A34;
+    background: var(--color-background);
     border: solid #252A34 0.25svw;
     border-radius: 1.5svw;
     transition: .3s ease;
@@ -30,12 +30,12 @@
 
 .selected {
     box-sizing: border-box;
-    border-color: #047684;
+    border-color: var(--color-border);
 }
 
 .crosswordItem:hover {
-    background-color: #047684;
-    border-color: #047684;
+    background-color: var(--color-border);
+    border-color: var(--color-border);
 }
 
 .crosswordItem .title {
@@ -59,8 +59,8 @@
 }
 
 .button {
-    background-color: #047684;
-    color: #EAEAEA;
+    background-color: var(--color-button);
+    color: var(--color-text);
     font-size: 18px;
     padding: 7px 25px;
     margin-right: 10px;
@@ -70,28 +70,28 @@
 }
 
 .button:hover {
-    background-color: #047684AA;
+    background-color: var(--color-button-hover);
 }
 
 .button.create {
-    background-color: #077230;
+    background-color: var(--color-button-green);
 }
 
 .button.create:hover {
-    background-color: #077230BB;
+    background-color: var(--color-button-green-hover);
 }
 
 .button.delete {
-    background-color: #770716;
+    background-color: var(--color-button-red);
 }
 
 .button.delete:hover {
-    background-color: #770716BB;
+    background-color: var(--color-button-red-hover);
 }
 
 .line {
     margin: 15px 0px;
-    border-bottom: 2px solid #047684;
+    border-bottom: 2px solid var(--color-border);
 }
 
 .description {

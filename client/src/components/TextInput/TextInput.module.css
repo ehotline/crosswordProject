@@ -2,9 +2,9 @@
     width: 100%;
     padding: 10px 15px;
     margin: 5px 0;
-    border: solid #047684 0.25svw;
+    border: solid var(--color-border) 0.25svw;
     border-radius: 15px;
-    background-color: #EAEAEA;
+    background-color: var(--color-text);
     outline: none;
     transition: all .5s ease;
 }
