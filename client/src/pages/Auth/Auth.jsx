@@ -2,15 +2,16 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import TextInput from '../../components/TextInput/TextInput'
 import styles from './Auth.module.css'
 import Button from '../../components/Button/Button'
-import { UserContext } from '../../contexts/UserContext'
+import { AuthContext } from '../../contexts/AuthContext'
 import ComponentWrapper from '../../components/ComponentWrapper/ComponentWrapper'
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import UserService from '../../services/UserService'
-import { redirect, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ROUTE_CROSSWORDS } from '../../routes'
+import { observer } from 'mobx-react-lite'
 
-const Auth = () => {
-    const { User } = useContext(UserContext)
+const Auth = observer(() => {
+    const { Context } = useContext(AuthContext)
     const [isLogin, setIsLogin] = useState(true)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -34,8 +35,9 @@ const Auth = () => {
                 user = await UserService.register(username, email, password)
             }
             if (user != null) {
-                User.setIsAuth(true)
-                User.setUser(user)
+                console.log(user)
+                Context.setIsAuth(true)
+                Context.setUser(user)
                 navigate(ROUTE_CROSSWORDS)
             }
         } catch (e) {
@@ -44,7 +46,7 @@ const Auth = () => {
     }
 
     useEffect(() => {
-        if (User.isAuth) {
+        if (Context.isAuth) {
             navigate(-1)
         }
     }, [])
@@ -79,6 +81,6 @@ const Auth = () => {
             </SwitchTransition>
         </ComponentWrapper>
     )
-}
+})
 
 export default Auth

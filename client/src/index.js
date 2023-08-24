@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { UserContext } from './contexts/UserContext';
+import { AuthContext } from './contexts/AuthContext';
 import UserStore from './store/UserStore';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <UserContext.Provider value={{
-            User: new UserStore()
+        <AuthContext.Provider value={{
+            Context: new UserStore()
         }}>
             <App />
-        </UserContext.Provider>
+        </AuthContext.Provider>
     </React.StrictMode>
 );

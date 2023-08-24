@@ -9,7 +9,7 @@ const Crosswords = () => {
     const [selectedCrossword, setSelectedCrossword] = useState(null)
     const [isCrosswordRemoved, setIsCrosswordRemoved] = useState([false, 0])
     const [crosswords, setCrosswords] = useState([])
-    const [fetchCrosswords, isCrosswordsLoading, error] = useFetching(async () => {
+    const [fetchCrosswords, isCrosswordsLoading] = useFetching(async () => {
         const response = await CrosswordService.getAll()
         setCrosswords(response.data)
         if (response.data[0]) {

@@ -11,7 +11,7 @@ module.exports = function (req, res, next) {
             next(ApiError.Unauthorized("Не авторизован"))
         }
         const decoded = jwt.verify(token, process.env.AUTH_KEY)
-        req.User = decoded
+        req.Token = decoded
         next()
     } catch (e) {
         next(ApiError.Unauthorized("Не авторизован"))

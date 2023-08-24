@@ -3,17 +3,21 @@ import { BrowserRouter } from 'react-router-dom'
 import AppRouter from './components/AppRouter';
 import './App.css'
 import Header from './components/Header/Header';
-import { UserContext } from './contexts/UserContext';
+import { AuthContext } from './contexts/AuthContext';
 import UserService from './services/UserService';
+import { observer } from 'mobx-react-lite'
 
-function App() {
-    const { User } = useContext(UserContext)
+const App = observer(() => {
+    const { Context } = useContext(AuthContext)
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         UserService.check().then(user => {
-            User.setIsAuth(true)
-            User.setUser(user)
+            console.log(user)
+            Context.setIsAuth(true)
+            Context.setUser(user)
+        }).catch(e => {
+            
         }).finally(() => {
             setIsLoading(false)
         })
@@ -31,6 +35,6 @@ function App() {
             <AppRouter />
         </BrowserRouter>
     );
-}
+})
 
 export default App;
