@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './Crosswords.module.css'
 import CrosswordItem from './CrosswordItem'
 
-const CrosswordsList = ({ crosswords, isCrosswordsLoading, selectedCrossword, setSelectedCrossword, isCrosswordsChanged }) => {
+const CrosswordsList = ({ crosswords, isCrosswordsLoading, selectedCrossword, setSelectedCrossword }) => {
     return (
         <div className={styles.crosswordsList}>
             {
